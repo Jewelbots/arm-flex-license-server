@@ -23,18 +23,12 @@ RUN \
   adduser lic-user sudo && \
   echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-# Add files.
-# ADD root/.bashrc /root/.bashrc
-#ADD root/.gitconfig /root/.gitconfig
-#ADD root/.scripts /root/.scripts
 COPY root/software /root/license
 COPY root/license /root/license
 COPY start.sh /root/license
-# Set environment variables.
   
 ENV HOME /root
 
-# Define working directory.
 WORKDIR /root/license
 RUN tar --owner=lic-user --group=root -xvf ./BX002-PT-00007-r11p13-01rel0.tgz
 RUN chmod 700 ./makelinks.sh
