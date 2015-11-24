@@ -3,7 +3,6 @@ license-server:
   container_name: license-server
   hostname: jwb
   mac_address: 02:31:AB:DD:19:82
-  command: /bin/sh start.sh
   expose: 
    - "8224"
   

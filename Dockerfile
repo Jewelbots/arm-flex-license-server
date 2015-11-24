@@ -33,7 +33,10 @@ WORKDIR /root/license
 RUN tar --owner=lic-user --group=root -xvf ./BX002-PT-00007-r11p13-01rel0.tgz
 RUN chmod 700 ./makelinks.sh
 RUN chown -R lic-user:users /root
+RUN mkdir /usr/tmp
+RUN mkdir /usr/tmp/.flexlm
+RUN chown -R lic-user:users /usr/tmp/.flexlm
 RUN /bin/sh ./makelinks.sh
 WORKDIR /root/license/
-CMD su -m lic-user -c /root/license/start.sh
+CMD su -m lic-user -c "./lmgrd -z -c ./license.dat -l ./license_log.log"
 
