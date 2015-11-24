@@ -41,5 +41,5 @@ RUN chmod 700 ./makelinks.sh
 RUN chown -R lic-user:users /root
 RUN /bin/sh ./makelinks.sh
 WORKDIR /root/license/
-CMD su -m lic-user -c /home/lic-user/root/start.sh
+CMD su -m lic-user -c /root/license/start.sh
 
